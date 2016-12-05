@@ -1,0 +1,15 @@
+CREATE TABLE [dbo].[ASPStateTempSessions](
+	[SessionId] [nvarchar](88) NOT NULL,--唯一的SessionId
+	[Created] [datetime] NOT NULL,--Session的创建时间
+	[Expires] [datetime] NOT NULL,--过期的时间
+	[LockDate] [datetime] NOT NULL,--锁定的时间
+	[LockId] [int] NOT NULL,--锁定的Id
+	[Timeout] [int] NOT NULL,--过期时间（分钟）
+	[Locked] [bit] NOT NULL,--是否锁定
+	[SessionItem] [nvarchar](max) NULL,--Session数据
+	[Flags] [int] NOT NULL,--标记是否是初始化数据
+ CONSTRAINT [PK_ASPStateTempSessions] PRIMARY KEY CLUSTERED 
+	(
+		[SessionId] ASC
+	) 
+)  
